@@ -16,13 +16,15 @@ Focus is on the following concepts:
 - Some cool animation player tricks
 
 
-LISENCES
-Code - MIT lisence
+LISENCES:
+
 Art - CC0 1.0
 
 Music
-Ice Cave - TAD
+
+Ice Cave - TAD -
 CC BY 4.0
+
 https://opengameart.org/users/tad
 https://opengameart.org/content/ice-cave
 
