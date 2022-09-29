@@ -2,7 +2,7 @@
 
 Built in Godot 3.5
 
-This game was made as a companion demo to [this](http-x) blog post. A companion video can be found [here](http-x).
+This game was made as a companion demo to [this blog post](). A companion video can be found [here](http-x). You can [paly it on itch.io](https://kpkpkpkpkpkpkpkp.itch.io/happy-adventure)
 
 *Happy Adventure* is a simple game meant to demonstrate some important concepts in Godot that beginners often struggle with.
 
