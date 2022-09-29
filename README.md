@@ -23,10 +23,7 @@ Art - CC0 1.0
 Music
 
 Ice Cave - TAD -
-CC BY 4.0
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 https://opengameart.org/users/tad
 https://opengameart.org/content/ice-cave
-
-
-
