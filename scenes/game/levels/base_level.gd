@@ -21,9 +21,7 @@ func _on_transition_entered(room):
 func _on_enemy_slept():
 	sleeping_enemies+=1
 	if sleeping_enemies>=enemy_count:
-		#Once all the madguys are sleeping, open the transition area so we can continue upwards
-		$TransitionAreas/BarrierUp/CollisionShape2D.call_deferred('set_disabled', true)
+		#Once all the madguys are sleeping, open the transition area so we iiican continue upwards
+		$TransitionAreas/BarrierUp/CollisionShape2D.set_deferred("disabled",true)
 		#Show arrow to indicate direction to the player
 		$ArrowPlayer.play("blink")
-
-

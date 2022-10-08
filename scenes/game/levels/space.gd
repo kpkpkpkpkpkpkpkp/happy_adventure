@@ -1,4 +1,4 @@
-extends "res://scenes/game/levels/base_level.gd"
+  extends "res://scenes/game/levels/base_level.gd"
 
 func _ready():
 	$StarPlayer.play("twinkle")

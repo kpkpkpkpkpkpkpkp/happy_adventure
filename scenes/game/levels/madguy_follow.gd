@@ -9,7 +9,8 @@ var target:KinematicBody2D
 var go: = true
 
 func _ready():
-	target=get_node($RemoteTransform2D.remote_path)
+	#TODO: No good, this is relative to the remotetransform, not to this node. duh
+	target=$RemoteTransform2D.get_node($RemoteTransform2D.remote_path)
 	if target != null:
 		target.connect("slept",self,"stop")
 
