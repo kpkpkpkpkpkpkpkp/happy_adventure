@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-export var follow_speed := 0.05
+export var follow_speed := 1
 
 #Remote transform lets us move the enemy without having to put them somewhere obscure in the scene tree.
 #Since we need to do some processing on the enemy in the level's _ready() function, 
@@ -18,6 +18,6 @@ func _ready():
 func stop():
 	go = false
 
-func _process(_delta):
+func _physics_process(_delta):
 	if go:
 		set_offset(get_offset() + follow_speed)

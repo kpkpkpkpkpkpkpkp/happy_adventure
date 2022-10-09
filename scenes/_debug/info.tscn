@@ -3,6 +3,7 @@
 [ext_resource path="res://scenes/_debug/info.gd" type="Script" id=1]
 
 [node name="InfoLayer" type="CanvasLayer"]
+visible = false
 script = ExtResource( 1 )
 
 [node name="InfoBox" type="VBoxContainer" parent="."]
