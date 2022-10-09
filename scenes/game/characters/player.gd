@@ -12,20 +12,20 @@ func _physics_process(_delta):
 		#The "false" argument pauses the player instead of stopping it, 
 		#so it will continue from the last spot when we start playing again
 		$FloatAnimationPlayer.stop(false)
-		floating=false
+		floating = false
 	
 	if Input.is_action_pressed("ui_float"):
 		#do this here so it always keeps us floating no matter what gets released
 		#If multiple inputs are mapped to one action, releasing one will trigger action released 
 		#even if the other is still held
-		floating=true
+		floating = true
 	
 	if Input.is_action_pressed("ui_float_left"):
-		if velocity.x>-MAX_H_SPEED:
-			velocity.x-=FLOAT_SPEED
+		if velocity.x > -MAX_H_SPEED:
+			velocity.x -= FLOAT_SPEED
 	if Input.is_action_pressed("ui_float_right"):
-		if velocity.x<MAX_H_SPEED:
-			velocity.x+=FLOAT_SPEED
+		if velocity.x < MAX_H_SPEED:
+			velocity.x += FLOAT_SPEED
 		
 func _input(event):
 	if event.is_action_pressed("ui_float_up"):
@@ -35,11 +35,11 @@ func _input(event):
 
 func song():
 	$ChimeSFX.play()
-	var note=note_scene.instance()
+	var note = note_scene.instance()
 	get_parent().add_child(note)
-	note.position=position
-	note.direction=direction
+	note.position = position
+	note.direction = direction
 	
 	#Pause ourselves until the animation is done
-	yield($FloatAnimationPlayer,"animation_finished")
+	yield($FloatAnimationPlayer, "animation_finished")
 	$FloatAnimationPlayer.play("float")

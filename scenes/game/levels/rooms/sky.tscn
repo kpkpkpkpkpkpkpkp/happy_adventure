@@ -2,14 +2,16 @@
 
 [ext_resource path="res://scenes/game/characters/madguy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game/levels/base_level.gd" type="Script" id=2]
-[ext_resource path="res://scenes/game/levels/transition_area.gd" type="Script" id=3]
 [ext_resource path="res://assets/sprites/bg.png" type="Texture" id=4]
 [ext_resource path="res://scenes/game/levels/animations/blink.tres" type="Animation" id=5]
 [ext_resource path="res://assets/sprites/arrow.png" type="Texture" id=6]
-[ext_resource path="res://scenes/game/levels/FloatPath.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/game/levels/float_path.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=3]
 resource_name = "return"
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 328.5, 12.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 328.5, 12.5 )
@@ -65,12 +67,10 @@ position = Vector2( 109, 234 )
 
 [node name="TransitionUp" type="Area2D" parent="TransitionAreas"]
 collision_layer = 8
-script = ExtResource( 3 )
-transition_scene = "res://scenes/game/levels/rooms/dusk.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/TransitionUp"]
 position = Vector2( 318.5, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="BarrierUp" type="StaticBody2D" parent="TransitionAreas"]
 collision_layer = 8
@@ -135,8 +135,7 @@ position = Vector2( 109, 234 )
 [node name="RemoteTransform2D" parent="FloatPath3/PathFollow2D" index="0"]
 remote_path = NodePath("../../../Enemies/Madguy3")
 
-[connection signal="body_entered" from="TransitionAreas/TransitionUp" to="TransitionAreas/TransitionUp" method="_on_body_entered"]
-[connection signal="transition_entered" from="TransitionAreas/TransitionUp" to="." method="_on_transition_entered" flags=6]
+[connection signal="body_entered" from="TransitionAreas/TransitionUp" to="." method="_on_transition_entered" flags=7 binds= [ "res://scenes/game/levels/rooms/dusk.tscn" ]]
 
 [editable path="FloatPath"]
 [editable path="FloatPath2"]

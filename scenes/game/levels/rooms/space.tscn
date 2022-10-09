@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/game/characters/madguy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/game/levels/space.gd" type="Script" id=2]
-[ext_resource path="res://scenes/game/levels/FloatPath.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/game/levels/rooms/space.gd" type="Script" id=2]
+[ext_resource path="res://scenes/game/levels/float_path.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/bg.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=4]
@@ -37,11 +37,17 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 328.5, 12.5 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 13, 219 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 13, 219 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 328.5, 12.5 )
 
 [sub_resource type="Curve2D" id=6]
 _data = {
@@ -100,7 +106,7 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/BarrierUp"]
 position = Vector2( 318.5, 1.5 )
 rotation = 3.14159
-shape = SubResource( 1 )
+shape = SubResource( 10 )
 
 [node name="BarrierLeft" type="StaticBody2D" parent="TransitionAreas"]
 collision_layer = 8
@@ -108,7 +114,7 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/BarrierLeft"]
 position = Vector2( 3, 209 )
-shape = SubResource( 2 )
+shape = SubResource( 11 )
 
 [node name="BarrierRight" type="StaticBody2D" parent="TransitionAreas"]
 position = Vector2( 632, 0 )
@@ -117,7 +123,7 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/BarrierRight"]
 position = Vector2( 3, 209 )
-shape = SubResource( 2 )
+shape = SubResource( 12 )
 
 [node name="BarrierDown" type="StaticBody2D" parent="TransitionAreas"]
 position = Vector2( 0, 438 )
@@ -127,7 +133,7 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/BarrierDown"]
 position = Vector2( 318.5, 0 )
 rotation = 3.14159
-shape = SubResource( 1 )
+shape = SubResource( 13 )
 
 [node name="FloatPath" parent="." instance=ExtResource( 3 )]
 curve = SubResource( 6 )

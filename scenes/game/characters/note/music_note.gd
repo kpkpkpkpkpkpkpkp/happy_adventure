@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
-var direction:=Vector2.RIGHT
-const SPEED=100
+var direction := Vector2.RIGHT
+const SPEED = 100
 
 func _ready():
 	$AnimationPlayer.play("jiggle")
 	
 func _physics_process(_delta):
-	move_and_slide((direction+Vector2.UP)*SPEED, Vector2.UP)
+	move_and_slide((direction + Vector2.UP) * SPEED, Vector2.UP)
 
 func _on_NoteRangeArea_body_entered(body):
 	#This is for madguy. 

@@ -17,6 +17,10 @@ run/main_scene="res://scenes/main.tscn"
 
 default_bus_layout=""
 
+[autoload]
+
+ScreenFader="*res://global/screen_fader.tscn"
+
 [debug]
 
 gdscript/warnings/unused_signal=false

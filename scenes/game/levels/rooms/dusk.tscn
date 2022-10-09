@@ -1,21 +1,29 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/game/characters/madguy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game/levels/base_level.gd" type="Script" id=2]
-[ext_resource path="res://scenes/game/levels/transition_area.gd" type="Script" id=3]
 [ext_resource path="res://assets/sprites/bg.png" type="Texture" id=4]
 [ext_resource path="res://scenes/game/levels/animations/blink.tres" type="Animation" id=5]
 [ext_resource path="res://assets/sprites/arrow.png" type="Texture" id=6]
-[ext_resource path="res://scenes/game/levels/FloatPath.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/game/levels/float_path.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=3]
 resource_name = "return"
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 328.5, 12.5 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 328.5, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 13, 219 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 13, 219 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 328.5, 12.5 )
 
 [sub_resource type="Curve2D" id=4]
 _data = {
@@ -65,12 +73,10 @@ position = Vector2( 243, 170 )
 
 [node name="TransitionUp" type="Area2D" parent="TransitionAreas"]
 collision_layer = 8
-script = ExtResource( 3 )
-transition_scene = "res://scenes/game/levels/rooms/space.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/TransitionUp"]
 position = Vector2( 318.5, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="BarrierUp" type="StaticBody2D" parent="TransitionAreas"]
 collision_layer = 8
@@ -79,7 +85,7 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/BarrierUp"]
 position = Vector2( 318.5, 1.5 )
 rotation = 3.14159
-shape = SubResource( 1 )
+shape = SubResource( 8 )
 
 [node name="BarrierLeft" type="StaticBody2D" parent="TransitionAreas"]
 collision_layer = 8
@@ -87,7 +93,7 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/BarrierLeft"]
 position = Vector2( 3, 209 )
-shape = SubResource( 2 )
+shape = SubResource( 9 )
 
 [node name="BarrierRight" type="StaticBody2D" parent="TransitionAreas"]
 position = Vector2( 632, 0 )
@@ -96,7 +102,7 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/BarrierRight"]
 position = Vector2( 3, 209 )
-shape = SubResource( 2 )
+shape = SubResource( 10 )
 
 [node name="BarrierDown" type="StaticBody2D" parent="TransitionAreas"]
 position = Vector2( 0, 438 )
@@ -106,15 +112,15 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/BarrierDown"]
 position = Vector2( 318.5, 0 )
 rotation = 3.14159
-shape = SubResource( 1 )
+shape = SubResource( 11 )
 
-[node name="FloatPath" parent="." instance=ExtResource( 7 )]
+[node name="FloatPath1" parent="." instance=ExtResource( 7 )]
 curve = SubResource( 4 )
 
-[node name="PathFollow2D" parent="FloatPath" index="0"]
+[node name="PathFollow2D" parent="FloatPath1" index="0"]
 position = Vector2( 43, 145 )
 
-[node name="RemoteTransform2D" parent="FloatPath/PathFollow2D" index="0"]
+[node name="RemoteTransform2D" parent="FloatPath1/PathFollow2D" index="0"]
 remote_path = NodePath("../../../Enemies/Madguy")
 
 [node name="FloatPath2" parent="." instance=ExtResource( 7 )]
@@ -135,9 +141,8 @@ position = Vector2( 243, 170 )
 [node name="RemoteTransform2D" parent="FloatPath3/PathFollow2D" index="0"]
 remote_path = NodePath("../../../Enemies/Madguy3")
 
-[connection signal="body_entered" from="TransitionAreas/TransitionUp" to="TransitionAreas/TransitionUp" method="_on_body_entered"]
-[connection signal="transition_entered" from="TransitionAreas/TransitionUp" to="." method="_on_transition_entered" flags=6]
+[connection signal="body_entered" from="TransitionAreas/TransitionUp" to="." method="_on_transition_entered" flags=7 binds= [ "res://scenes/game/levels/rooms/space.tscn" ]]
 
-[editable path="FloatPath"]
+[editable path="FloatPath1"]
 [editable path="FloatPath2"]
 [editable path="FloatPath3"]

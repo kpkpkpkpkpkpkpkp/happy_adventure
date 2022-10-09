@@ -15,15 +15,12 @@ Focus is on the following concepts:
 - Using signals and groups to keep things decoupled
 - Some cool animation player tricks
 
-
 LISENCES:
 
 Art - CC0 1.0
 
-Music
-
-Ice Cave - TAD -
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-https://opengameart.org/users/tad
-https://opengameart.org/content/ice-cave
+Background Music
+Title - Ice Cave
+Artist - TAD - https://opengameart.org/users/tad
+Source - https://opengameart.org/content/ice-cave
+License - CC BY 4.0 - https://creativecommons.org/licenses/by/4.0/

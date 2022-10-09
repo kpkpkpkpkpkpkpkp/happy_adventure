@@ -8,12 +8,12 @@ script = ExtResource( 1 )
 [node name="InfoBox" type="VBoxContainer" parent="."]
 
 [node name="Floating" type="Label" parent="InfoBox"]
-margin_right = 41.0
+margin_right = 50.0
 margin_bottom = 14.0
-text = "heyy"
+text = "floating"
 
 [node name="Velocity" type="Label" parent="InfoBox"]
 margin_top = 18.0
-margin_right = 41.0
+margin_right = 50.0
 margin_bottom = 32.0
-text = "woahh"
+text = "velocity"

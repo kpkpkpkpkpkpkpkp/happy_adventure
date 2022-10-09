@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/sprites/pause_text.png" type="Texture" id=1]
+[ext_resource path="res://scenes/menu/pause/pause_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game/game_world.gd" type="Script" id=2]
 [ext_resource path="res://scenes/game/characters/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/game/levels/rooms/mountains.tscn" type="PackedScene" id=4]
@@ -21,19 +21,9 @@ position = Vector2( 230, 241 )
 [node name="WorldCam" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="InfoLayer" parent="." instance=ExtResource( 5 )]
-layer = 2
-visible = false
-player_path = NodePath("../Player")
-
 [node name="PauseLayer" type="CanvasLayer" parent="."]
-visible = false
 
-[node name="PauseBG" type="ColorRect" parent="PauseLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.286275, 0.333333, 0.490196, 0.643137 )
+[node name="PauseMenu" parent="PauseLayer" instance=ExtResource( 1 )]
 
-[node name="PauseText" type="Sprite" parent="PauseLayer"]
-texture = ExtResource( 1 )
-centered = false
+[node name="InfoLayer" parent="." instance=ExtResource( 5 )]
+player_path = NodePath("../Player")

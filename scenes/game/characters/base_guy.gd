@@ -22,10 +22,10 @@ func _physics_process(_delta):
 		
 	if velocity.x >= 0:
 		direction = Vector2.RIGHT
-		$BalloonSprite.flip_h=false
+		$BalloonSprite.flip_h = false
 	else:
 		direction = Vector2.LEFT
-		$BalloonSprite.flip_h=true
+		$BalloonSprite.flip_h = true
 	
 	#Apply drag so that we don't keep floating after releasing the button.
 	#Floating point comparisons are very sensitive! checking for exact zero will often not work
